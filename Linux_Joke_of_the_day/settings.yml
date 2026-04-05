@@ -1,0 +1,14 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: 2.3.7
+serverless_language: 
+polling_url: 'https://usetrmnl.com/custom_plugin_example_data.json?date=##{{ "now" | date: "%Y-%m-%d" }}'
+polling_headers: ''
+polling_body: ''
+id: 258137
+name: Linux Joke of the Day
+refresh_interval: 1440

@@ -1,0 +1,66 @@
+<div class="view view--full">
+  <div class="layout">
+    <div class="columns">
+      <div class="column">
+        <div class="markdown">
+          <div class="content content--center" id="joke-text" style="font-size: 1.6rem; line-height: 2rem;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="title_bar">
+    <img class="image" src="https://trmnl.com/images/plugins/trmnl--render.svg" />
+    <span class="title">🐧 Linux Joke of the Day</span>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var jokes = [
+      "Linux is not magic. It's sudo science.",
+      "I cannot stop using the command line. Doctor says it's a terminal disease.",
+      "I'll tell you a DNS joke but be advised, it could take up to 24 hours for everyone to get it.",
+      "I think there is a duck in my router. It always goes NAT, NAT, NAT.",
+      "So I want to dress up as a UDP packet for Halloween, but I don't know if anyone will get it.",
+      "I could tell you an ICMP joke but it would probably be repetitive.",
+      "I wanted to write an IPv4 joke, but the good ones were all already exhausted.",
+      "IPv4 address space walks into a bar and yells 'One strong CIDR please, I'm exhausted!'",
+      "Knock knock. Who's there? SYN flood. SYN flood who? Knock knock....",
+      "Q. What is a Linux sysadmin's favourite hangout place? A. Foo Bar",
+      "A RAID member disk walks into a bar. Bartender asks what's wrong? 'Parity error.' 'Yeah, you look a bit off.'",
+      "Linux geek started working at McDonalds. A customer asked him for a Big Mac and he gave him a bit of paper with FF:FF:FF:FF:FF:FF written on it.",
+      "Q. What kind of doctor fixes broken websites? A. A URLologist.",
+      "Q. What kind of doctor does a router visit? A. A URLologist. Always with the same complaint: It hurts when IP.",
+      "Q. Do you know the problem with UDP jokes? A. The punchline often arrives before the set-up.",
+      "You know the thing about NTP jokes? It's all about the timing!",
+      "A TCP packet walks into a bar and says 'I'd like a beer.' Bartender: 'You want a beer?' TCP: 'Yes, I'd like a beer.'",
+      "404 Joke not found.",
+      "What does a networking seal say? ARP! ARP! ARP!",
+      "Q. Why was the router fired by UPS and FedEx? A. Too many dropped packets.",
+      "Q. Why didn't anyone enjoy the Airport Wi-Fi wedding? A. The reception was terrible.",
+      "I asked 'Siri, why am I so bad with women?' She responded 'I'm Bixby, you moron.'",
+      "How does a lumberjack start his computer? By logging on.",
+      "How do you know a computer is on a diet? It stops eating after one byte.",
+      "The cloud is just someone else's Linux server.",
+      "Troubleshooting in Windows: Reboot. Troubleshooting in Linux: Be root.",
+      "Nano is for editing files. Vim is for building character.",
+      "What is the favourite game of a Linux user? sudo ku",
+      "What is Linux if it loses its balls? Unix",
+      "less is more"
+    ];
+
+    // Use the date from the time API that TRMNL polled
+    // Fallback to JS date if not available
+    var dateStr = "{{ datetime }}";
+    var now = dateStr && dateStr !== "" ? new Date(dateStr) : new Date();
+
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var dayOfYear = Math.floor(diff / oneDay);
+
+    var joke = jokes[dayOfYear % jokes.length];
+    document.getElementById("joke-text").innerText = joke;
+  });
+</script>
